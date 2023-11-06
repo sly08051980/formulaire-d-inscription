@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script type ="module" src="./assets/js/script.js" defer></script>
+    <title>Formulaire d'Inscription</title>
+</head>
+<body>
+    <header>
+        <h1>Code of the Day</h1>
+        <h2>Le quotidien des dévellopeurs en herbe</h2>
+        <p>Bienvenue sur le portail d'inscription à notre liste d'abonnement</p>
+        <p>Ici vous pourrez demander à ce que votre journal préféré vous soit livré chaque jours</p>
+        <p>Dès que nos équipes recevront votre demande,vous serez contacter par courrier élétronique</p>
+    </header>
+
+    <main>
+        <h3>Formulaire d'inscription</h3>
+
+        <fieldset>
+            <legend> Identité</legend>
+            
+                <input type="radio" id="monsieur" name="choix" value="monsieur">
+                    <label for="monsieur">Monsieur</label>
+                <input type="radio" id="madame" name="choix" value="madame">
+                    <label for="madame">Madame</label>
+                <label>Nom : </label>
+                    <input type="text" id="nom">
+                <label>Prénom : </label>
+                    <input type="text" id="prenom">
+                <label>E-mail : </label>
+                    <input type="text" id="email">
+        </fieldset>
+        <fieldset>
+            <legend>Adresse de facturation</legend>
+                <label>Rue : </label>
+                    <input type="text" class="rue" id="zipadresse" name="zipadresse"  >
+                    <ul id="list"></ul>
+                <label>Ville : </label>
+                    <input type="text" class="ville" id="zipville" name="=zipville">
+                <label>Code postal : </label>
+                    <input type="text" class="codepostal" id="zipcodepostal" name="zipcodepostal">
+        </fieldset>
+        <fieldset>
+            <legend>Adresse de livraison</legend>
+                <label>Rue : </label>
+                <input type="text" class="rue">
+            <label>Ville : </label>
+                <input type="text" class="ville">
+            <label>Code postal : </label>
+                <input type="text" class="codepostal">
+        </fieldset>
+    </main>
+
+    <footer>
+
+    </footer>
+    
+</body>
+</html>
