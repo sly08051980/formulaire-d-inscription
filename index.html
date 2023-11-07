@@ -21,41 +21,62 @@
 
         <fieldset>
             <legend> Identité</legend>
-            
-                <input type="radio" id="monsieur" name="choix" value="monsieur">
-                    <label for="monsieur">Monsieur</label>
-                <input type="radio" id="madame" name="choix" value="madame">
-                    <label for="madame">Madame</label>
-                <label>Nom : </label>
-                    <input type="text" id="nom">
-                <label>Prénom : </label>
-                    <input type="text" id="prenom">
-                <label>E-mail : </label>
-                    <input type="text" id="email">
+                <div class="choix">
+                
+                   <label>Monsieur <input type="radio" id="monsieur" name="choix" value="monsieur"></label>
+                     
+                   <label>Madame<input type="radio" id="madame" name="choix" value="madame"></label>
+                </div>
+                
+                <div class="flex">
+                    <label>Nom : <input type="text" id="nom"></label>
+                        
+                </div>
+                <div class="flex">
+                    <label>Prénom : <input type="text" id="prenom"></label>
+                        
+                </div>
+                <div class="flex">
+                    <label>E-mail : <input type="text" id="email"></label>
+                        
+                </div>
         </fieldset>
         <fieldset>
             <legend>Adresse de facturation</legend>
-                <label>Rue : </label>
-                    <input type="text" class="rue" id="zipadresse" name="zipadresse"  >
-                    <ul id="list"></ul>
-                <label>Ville : </label>
-                    <input type="text" class="ville" id="zipville" name="=zipville">
-                <label>Code postal : </label>
-                    <input type="text" class="codepostal" id="zipcodepostal" name="zipcodepostal">
+                <div class="flex">  
+                    <label>Rue : <input type="text" class="rue" id="zipadresse" name="zipadresse"  >
+                        <ul id="list"></ul></label>
+                </div>
+                <div class="flex">
+                    <label>Ville : <input type="text" class="ville" id="zipville" name="=zipville"></label>
+                </div>
+                <div class="flex">   
+                    <label>Code postal : <input type="text" class="codepostal" id="zipcodepostal" name="zipcodepostal"required minlength="0" maxlength="5" size="2"></label>
+                </div>
+                <div class="flex">
+                    <label>Livraison identique a facturation <input type="checkbox" id="livfac"></label>
+                </div>
         </fieldset>
         <fieldset>
             <legend>Adresse de livraison</legend>
-                <label>Rue : </label>
-                <input type="text" class="rue">
-            <label>Ville : </label>
-                <input type="text" class="ville">
-            <label>Code postal : </label>
-                <input type="text" class="codepostal">
+            <div class="flex"> 
+                     <label>Rue : <input type="text" class="rue" id="liv_adresse"></label>
+            </div>
+            <div class="flex"> 
+                
+                <label>Ville : <input type="text" class="ville" id="liv_ville"></label>
+            </div>
+            <div class="flex"> 
+                 
+                <label>Code postal : <input type="text" class="codepostal" id="liv_codepostal"required minlength="0" maxlength="5" size="2"></label>
+            </div>
         </fieldset>
+
+        <button>Valider</button>
     </main>
 
     <footer>
-
+        <P>Sylvain Regnier - @Code of the day - 2023</P>
     </footer>
     
 </body>
