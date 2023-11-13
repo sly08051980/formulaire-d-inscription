@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "node": "^21.1.0",
-    "sass": "^1.69.5"
+    "sass": "^1.69.5",
+    "uuid": "^9.0.1"
   },
   "name": "formulaire-d-inscription",
   "version": "1.0.0",
