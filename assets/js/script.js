@@ -35,6 +35,7 @@ console.log("script Chargé");
     let createJson ={};
     let myuuid = crypto.randomUUID();
     let count =0;
+    let premierEnregistrement =0;
 
 
     
@@ -199,7 +200,7 @@ validate.addEventListener("click", function() {
         window.alert("veuillez remplir les champs vide");
         
     }else{
-        createJson=[{id : myuuid, sir_miss : civility ,name : nom.value,first_name : prenom.value,email : email.value,billing_adresse : [{street : zipadresse1.value,city : zipville.value,postal_code : zipcodepostal.value}],delivery_adress :[{street : livadresse.value,city : livville.value,postal_code:livcodepostal.value}]}]
+        createJson=[{id : myuuid, sir_miss : civility ,name : nom.value,first_name : prenom.value,email : email.value,street : zipadresse1.value,city : zipville.value,postal_code : zipcodepostal.value,delivery_adress :[{street : livadresse.value,city : livville.value,postal_code:livcodepostal.value}]}]
         console.log(createJson);
         getReadCollection();
     }
@@ -223,6 +224,7 @@ console.log(civility);
                     body: JSON.stringify(createJson),
                   });
                   const jsonResponse = await req.json();
+                  premierEnregistrement=1;
                   return jsonResponse;
             }
 
@@ -302,9 +304,12 @@ console.log(civility);
                 //   console.log("createJson : ",createJson);
                     records.push(createJson);
                     // console.log("records : ",records);
-                    readCollectionBins.record.forEach(identite => {
-                        records.push(identite);
-                    });
+                    if(premierEnregistrement===0){
+                        readCollectionBins.record.forEach(identite => {
+                            records.push(identite);
+                        });
+                    }
+                    
                     // records.push(readCollectionBins.record);
                     console.log("Tableau : ", records);
                     pushJson(records);
