@@ -199,7 +199,7 @@ validate.addEventListener("click", function() {
         window.alert("veuillez remplir les champs vide");
         
     }else{
-        createJson={id : myuuid, sir_miss : civility ,name : nom.value,first_name : prenom.value,email : email.value,billing_adresse : [{street : zipadresse1.value,city : zipville.value,postal_code : zipcodepostal.value}],delivery_adress :[{street : livadresse.value,city : livville.value,postal_code:livcodepostal.value}]}
+        createJson=[{id : myuuid, sir_miss : civility ,name : nom.value,first_name : prenom.value,email : email.value,billing_adresse : [{street : zipadresse1.value,city : zipville.value,postal_code : zipcodepostal.value}],delivery_adress :[{street : livadresse.value,city : livville.value,postal_code:livcodepostal.value}]}]
         console.log(createJson);
         getReadCollection();
     }
@@ -348,13 +348,13 @@ console.log(civility);
             }
         }
 
-            document.getElementById("delete").addEventListener("click",function(){
+            // document.getElementById("delete").addEventListener("click",function(){
 
-                console.log(records)
-             const del=  records.filter((byid)=>byid.id ==='338f0594-2f5b-414c-bde9-478eb77c0c30');
-             records=del;
-             console.log(records)
-             getAjoutBins(records);
+            //     console.log(records)
+            //  const del=  records.filter((byid)=>byid.id ==='338f0594-2f5b-414c-bde9-478eb77c0c30');
+            //  records=del;
+            //  console.log(records)
+            //  getAjoutBins(records);
 
-            })
+            // })
                        
