@@ -2,38 +2,28 @@ import { v4 as uuidv4} from 'https://jspm.dev/uuid';
 console.log(uuidv4());
 console.log("script Chargé");
 
-    let zipadresse = document.getElementById("zipadresse").value;
-    let zipadresse1= document.getElementById("zipadresse");
+
     let zipville = document.getElementById("zipville");
     let zipcodepostal =document.getElementById("zipcodepostal");
     let adresse = document.getElementById("zipadresse");
-    const validate = document.getElementById("validate");
-    const civility =document.querySelector('input[name=choix]:checked');
-    let nom =document.getElementById("nom");
-    let prenom=document.getElementById("prenom");
-    let email=document.getElementById("email")
     let change="";
     let apiUrl="";
-    let test="";
     let li;
     let city;
     let cityCode;
     let cityName;
-    let livfac=document.getElementById("livfac");
     let livadresse = document.getElementById("liv_adresse");
     let livville = document.getElementById("liv_ville");
     let livcodepostal = document.getElementById("liv_codepostal");
     let ul = document.querySelector("ul");
-    let changezipadresse = document.getElementById("zipadresse");
     const URL_API = "https://api.jsonbin.io/v3";
     const API_KEY = '$2a$10$xKWiKj9TSsybUfnpPg87Ouv9o1lkVLt.0TBBDfOUcVCoDSPCWKQV2';
-    let collectionRecord=""
+    let collectionRecord="";
     let records=[];
     let collection ;
     let collectionBins;
     let numberBins;
     let createJson ={};
-    let myuuid = crypto.randomUUID();
     let count =0;
     let premierEnregistrement =0;
 
@@ -45,13 +35,13 @@ console.log("script Chargé");
     //#############################################################
     //ecouteur sur l adresse pour modifier les espace en +
     //#############################################################
-    changezipadresse.addEventListener("input", (eventInput) => {
+    document.getElementById("zipadresse").addEventListener("input", (eventInput) => {
          change = eventInput.target.value.length;
         // console.log("change : ", change);
        
         const params = eventInput.target.value.split(" ").join("+");
         // console.log("params : ", params);
-        test = eventInput.target.value;
+       let test = eventInput.target.value;
         nbrLetters(change, params); 
     })
     //#############################################################
@@ -92,7 +82,7 @@ function rechercheDataFetcher(dataFetchTer) {
        cityCode.push(recherche.properties.postcode);
     //   console.log("city code postal :",cityCode);
       cityName.push(recherche.properties.name);
-    //   console.log("cityname : ",cityName);
+    //   console.log("cityname : ",cityName);e
       listeLi(labels);
      
     }
@@ -141,13 +131,13 @@ function clickLi(li,city,cityCode,cityName) {
     
 function dupliquer() {
 
-    if (livfac.checked==true) {
+    if (document.getElementById("livfac").checked==true) {
         livadresse.value= adresse.value;
         livville.value =zipville.value;
         livcodepostal.value=zipcodepostal.value;     
     }
 
-    livfac.addEventListener('change',function () {
+    document.getElementById("livfac").addEventListener('change',function () {
         if (this.checked){
             livadresse.value= adresse.value;
             livville.value =zipville.value;
@@ -192,20 +182,20 @@ dupliquer();
 
 
 
-validate.addEventListener("click", function() {
+    document.getElementById("validate").addEventListener("click", function() {
 
-
-    if(nom.value==="" || prenom.value ==="" || email.value==="" || zipadresse1.value==="" || zipville.value ==="" || zipcodepostal.value ==="" || livadresse.value ==="" || livcodepostal.value==="" || livcodepostal.value ===""){
+    
+    if(document.getElementById("nom").value==="" || document.getElementById("prenom").value ==="" || document.getElementById("email").value==="" || document.getElementById("zipadresse").value==="" || zipville.value ==="" || zipcodepostal.value ==="" || livadresse.value ==="" || livcodepostal.value==="" || livcodepostal.value ===""){
         // console.log("remplir les champs ")
         window.alert("veuillez remplir les champs vide");
         
     }else{
-        createJson=[{id : myuuid, sir_miss : civility ,name : nom.value,first_name : prenom.value,email : email.value,street : zipadresse1.value,city : zipville.value,postal_code : zipcodepostal.value,delivery_adress :[{street : livadresse.value,city : livville.value,postal_code:livcodepostal.value}]}]
+        createJson=[{id : crypto.randomUUID(), sir_miss : document.querySelector('input[name=choix]:checked').value ,name : document.getElementById("nom").value,first_name : document.getElementById("prenom").value,email : document.getElementById("email").value,street : document.getElementById("zipadresse").value,city : zipville.value,postal_code : zipcodepostal.value,delivery_adress :[{street : livadresse.value,city : livville.value,postal_code:livcodepostal.value}]}]
         console.log(createJson);
         getReadCollection();
     }
 
-console.log(civility);
+
   });
 
             //######################################################################################
